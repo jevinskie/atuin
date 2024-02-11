@@ -6,6 +6,10 @@ services:
     command: server start
     volumes:
       - "./config:/config"
+      - type: bind
+        source: /etc/letsencrypt/live/atuin.je.vin
+        target: /certs
+        read_only: true
     links:
       - postgresql:db
     ports:

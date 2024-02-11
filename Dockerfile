@@ -18,12 +18,12 @@ RUN cargo build --release --bin atuin
 
 FROM debian:bookworm-slim AS runtime
 
-RUN useradd -c 'atuin user' atuin && mkdir /config && chown atuin:atuin /config
+RUN groupadd -g 1002 atuin-server && useradd -c 'atuin-server user' -g 1002 -u 1002 -N atuin-server && mkdir /config && chown atuin-server:atuin-server /config && mkdir /certs && chown atuin-server:atuin-server /certs
 # Install ca-certificates for webhooks to work
 RUN apt update && apt install ca-certificates -y && rm -rf /var/lib/apt/lists/*
 WORKDIR app
 
-USER atuin
+USER atuin-server
 
 ENV TZ=Etc/UTC
 ENV RUST_LOG=atuin::api=info

@@ -6,3 +6,5 @@
 .vscode/
 result
 publish.sh
+/config
+/database
