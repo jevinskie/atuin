@@ -80,7 +80,7 @@ github-attestations = true
 # The profile that 'cargo dist' will build with
 [profile.dist]
 inherits = "release"
-lto = "thin"
+lto = "fat"
 
 [workspace.metadata.dist.github-custom-runners]
 aarch64-apple-darwin = "macos-14"
