@@ -1,11 +1,14 @@
-version: '3.5'
 services:
   atuin:
     restart: always
-    image: ghcr.io/jevinskie/atuin:latest-jev
+    image: jevinskie/atuin:latest-jev
     command: server start
     volumes:
-      - ./config:/config
+      - "./config:/config"
+      - type: bind
+        source: /etc/letsencrypt/live/atuin.je.vin/
+        target: /certs
+        read_only: true
     links:
       - postgresql:db
     env_file:
@@ -41,7 +44,7 @@ services:
         SCHEDULE: "@daily"
         BACKUP_DIR: /db_dumps
       volumes:
-        - ./db_dumps:/db_dumps
+        - "./db_dumps:/db_dumps"
       depends_on:
         - postgresql
 

@@ -43,5 +43,20 @@ impl Atuin {
 }
 
 fn main() -> Result<()> {
+    println!("autin running");
+    println!("getuid() => {:#?}", nix::unistd::getuid())
+    println!("getgid() => {:#?}", nix::unistd::getgid())
+    println!("geteuid() => {:#?}", nix::unistd::geteuid())
+    println!("getegid() => {:#?}", nix::unistd::getegid())
+    println!("getresuid() => {:#?}", nix::unistd::getresuid())
+    println!("getresgid() => {:#?}", nix::unistd::getresgid())
+    println!("getgroups() => {:#?}", nix::unistd::getgroups())
+    println!("getpgid() => {:#?}", nix::unistd::getpgid())
+    println!("getpgrp() => {:#?}", nix::unistd::getpgrp())
+    println!("getpid() => {:#?}", nix::unistd::getpid())
+    println!("getppid() => {:#?}", nix::unistd::getppid())
+    println!("getsid() => {:#?}", nix::unistd::getsid())
+    println!("gettid() => {:#?}", nix::unistd::gettid())
+
     Atuin::parse().run()
 }
