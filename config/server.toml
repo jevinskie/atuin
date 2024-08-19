@@ -30,8 +30,8 @@ enable = false
 
 [tls]
 enable = true
-cert_path = "/certs/cert.pem"
-pkey_path = "/certs/privkey.pem"
+cert_path = "/certs/live/atuin.je.vin/cert.pem"
+pkey_path = "/certs/live/atuin.je.vin/privkey.pem"
 
 [mail]
 enable = false

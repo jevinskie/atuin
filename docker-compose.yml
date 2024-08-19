@@ -5,10 +5,12 @@ services:
     command: server start
     volumes:
       - "./config:/config"
-      - type: bind
-        source: /etc/letsencrypt/live/atuin.je.vin/
-        target: /certs
-        read_only: true
+      - "/etc/letsencrypt/live/atuin.je.vin:/certs/live/atuin.je.vin"
+      - "/etc/letsencrypt/archive/atuin.je.vin:/certs/archive/atuin.je.vin"
+      # - type: bind
+      #   source: /etc/letsencrypt/live/atuin.je.vin
+      #   target: /certs
+      #   read_only: true
     links:
       - postgresql:db
     env_file:

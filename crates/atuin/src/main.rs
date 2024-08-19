@@ -43,20 +43,22 @@ impl Atuin {
 }
 
 fn main() -> Result<()> {
-    println!("autin running");
-    println!("getuid() => {:#?}", nix::unistd::getuid())
-    println!("getgid() => {:#?}", nix::unistd::getgid())
-    println!("geteuid() => {:#?}", nix::unistd::geteuid())
-    println!("getegid() => {:#?}", nix::unistd::getegid())
-    println!("getresuid() => {:#?}", nix::unistd::getresuid())
-    println!("getresgid() => {:#?}", nix::unistd::getresgid())
-    println!("getgroups() => {:#?}", nix::unistd::getgroups())
-    println!("getpgid() => {:#?}", nix::unistd::getpgid())
-    println!("getpgrp() => {:#?}", nix::unistd::getpgrp())
-    println!("getpid() => {:#?}", nix::unistd::getpid())
-    println!("getppid() => {:#?}", nix::unistd::getppid())
-    println!("getsid() => {:#?}", nix::unistd::getsid())
-    println!("gettid() => {:#?}", nix::unistd::gettid())
+    eprintln!("autin running");
+    eprintln!("getuid() => {:#?}", nix::unistd::getuid());
+    eprintln!("getgid() => {:#?}", nix::unistd::getgid());
+    eprintln!("geteuid() => {:#?}", nix::unistd::geteuid());
+    eprintln!("getegid() => {:#?}", nix::unistd::getegid());
+    eprintln!("getresuid() => {:#?}", nix::unistd::getresuid());
+    eprintln!("getresgid() => {:#?}", nix::unistd::getresgid());
+    eprintln!("getgroups() => {:#?}", nix::unistd::getgroups());
+    eprintln!("getpgid() => {:#?}", nix::unistd::getpgid(Some(nix::unistd::Pid::this())));
+    eprintln!("getpgrp() => {:#?}", nix::unistd::getpgrp());
+    eprintln!("getpid() => {:#?}", nix::unistd::getpid());
+    eprintln!("getppid() => {:#?}", nix::unistd::getppid());
+    eprintln!("getsid() => {:#?}", nix::unistd::getsid(Some(nix::unistd::Pid::from_raw(0))));
+    eprintln!("gettid() => {:#?}", nix::unistd::gettid());
+    // eprintln!("now sleeping, inspect me!");
+    // std::thread::sleep(std::time::Duration::from_secs(900));
 
     Atuin::parse().run()
 }
