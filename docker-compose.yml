@@ -1,11 +1,18 @@
-version: '3.5'
 services:
   atuin:
     restart: always
-    image: ghcr.io/jevinskie/atuin:latest-jev
+    image: jevinskie/atuin:latest-jev
     command: server start
     volumes:
       - ./config:/config
+      - type: bind
+        source: /etc/letsencrypt/live/atuin.je.vin
+        target: /certs/live/atuin.je.vin
+        read_only: true
+      - type: bind
+        source: /etc/letsencrypt/archive/atuin.je.vin
+        target: /certs/archive/atuin.je.vin
+        read_only: true
     links:
       - postgresql:db
     env_file:
