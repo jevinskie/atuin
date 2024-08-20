@@ -25,11 +25,11 @@ base64 = { workspace = true }
 rand = { workspace = true }
 tokio = { workspace = true }
 async-trait = { workspace = true }
-axum = "0.7.4"
+axum = { version = "0.7.4", features = ["tower-log"] }
 axum-server = { version = "0.6.0", features = ["tls-rustls"] }
 fs-err = { workspace = true }
 tower = { workspace = true }
-tower-http = { version = "0.5.1", features = ["trace"] }
+tower-http = { version = "0.5.1", features = ["trace", "tracing", "tower"] }
 reqwest = { workspace = true }
 rustls = "0.21"
 rustls-pemfile = "2.1"
