@@ -19,6 +19,7 @@ services:
         - .env
     ports:
       - ${ATUIN_PORT}:8888
+      - 2222:2222
     environment:
       ATUIN_HOST: "0.0.0.0"
       ATUIN_OPEN_REGISTRATION: "false"
