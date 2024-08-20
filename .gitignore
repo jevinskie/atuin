@@ -11,5 +11,5 @@ publish.sh
 ui/backend/target
 ui/backend/gen
 
-/db_dumps/
-/database/
+/db_dumps
+/database
