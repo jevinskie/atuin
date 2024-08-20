@@ -79,7 +79,7 @@ futures-util = "0.3"
 fuzzy-matcher = "0.3.7"
 colored = "2.0.4"
 ratatui = "0.27"
-tracing = "0.1"
+tracing = { version = "0.1", features = ["release_max_level_trace", "max_level_trace", "log-always"] }
 tracing-subscriber = { workspace = true }
 uuid = { workspace = true }
 unicode-segmentation = "1.11.0"

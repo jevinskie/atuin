@@ -35,7 +35,7 @@ fs-err = { workspace = true }
 whoami = { workspace = true }
 semver = { workspace = true }
 futures-util = "0.3"
-tracing = "0.1"
+tracing = { version = "0.1", features = ["release_max_level_trace", "max_level_trace", "log-always"] }
 uuid = { workspace = true }
 unicode-segmentation = "1.11.0"
 sysinfo = "0.30.7"
